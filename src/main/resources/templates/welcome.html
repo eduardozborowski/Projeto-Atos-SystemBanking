@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ATM Simulator</title>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery.numpad.css}">
+    <script type="text/javascript" th:src="@{/js/jquery.numpad.js}"></script>
+    <script type="text/javascript">
+
+                $.fn.numpad.defaults.gridTpl = '<table class="table modal-content"><\/table>';
+                        $.fn.numpad.defaults.backgroundTpl = '<div class="modal-backdrop in"><\/div>';
+                        $.fn.numpad.defaults.displayTpl = '<input type="text" class="form-control" />';
+                        $.fn.numpad.defaults.buttonNumberTpl =  '<button type="button" class="btn btn-default"><\/button>';
+                        $.fn.numpad.defaults.buttonFunctionTpl = '<button type="button" class="btn" style="width: 100%;"><\/button>';
+                        $.fn.numpad.defaults.onKeypadCreate = function(){$(this).find('.done').addClass('btn-primary');};
+
+        $(document).ready(function(){
+                                $('#numpadButton-btn').numpad({
+                                        target: $('#numpadButton')
+                                });
+                                $('#pin').numpad({
+                                        displayTpl: '<input class="form-control" type="password" />',
+                                        hidePlusMinusButton: true,
+                                        hideDecimalButton: true
+                                });
+                        });
+
+  </script>
+</head>
+<body>
+<main role="main" class="container">
+    <div class="starter-template"><img th:src="@{/images/atosBank.png}" class="center" alt=""></div>
+    <div class="container text-center">
+        <div>
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+            <label for="numpadButton">Entre com seu login:</label>
+            <div class="input-group">
+                <input th:field="*{login}" type="text" class="form-control" id="numpadButton" aria-describedby="numpadButton-btn">
+            </div>
+            <div class="form-group">
+                <label for="pin">Entre com sua senha:</label> <input th:field="*{password}" type="password" class="form-control" id="pin" maxlength="6">
+            </div>
+            <div class="btn-group">
+                <input type="submit" value="Login"> <input type="reset" value="Reset">
+            </div>
+            </div>
+
+            <div class="container-icones">
+
+                <div class="icones">
+                    <img src="https://atos.net/wp-content/uploads/2016/07/Leadership-in-extreme-computing.png"
+                         alt="Leadership-in-extreme-computing">
+                    <h4>Líder mundial em Transformação Digital</h4>
+                </div>
+                <div class="icones">
+                    <img src="https://atos.net/wp-content/uploads/2016/07/Leadership-in-extreme-computing.png"
+                         alt="Leadership-in-extreme-computing">
+                    <h4>Nº 1 na Europa em Cloud, HPC e Cybersecurity</h4>
+                </div>
+                <div class="icones">
+                    <img src="https://atos.net/wp-content/uploads/2019/08/People.png" alt="People">
+                    <h4>105 mil especialistas em 71 países</h4>
+                </div>
+                <div class="icones">
+                    <img src="https://atos.net/wp-content/uploads/2016/07/to-size5-08.png" alt="to-size5-08">
+                    <h4>Parceira de TI dos Jogos Olímpicos e Paralímpicos</h4>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+</body>
+</html>

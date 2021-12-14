@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>ATM Simulator</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+<body>
+
+
+<main role="main" class="container">
+    <div class="box-content">
+        <div class="starter-template">
+            <img th:src="@{/images/atosBank.png}" class="center" alt="">
+        </div>
+        <div class="content">
+            <h1>Menu</h1>
+            <h4 th:text="${Text}"></h4>
+            <div class="btn-group-caixa">
+                <button><a th:href="@{/balance}">Consultar Saldo</a></button>
+                <button><a th:href="@{/withdraw}">Saque</a></button>
+                <button><a th:href="@{/deposit}">Depósito</a></button>
+                <button><a th:href="@{/transfer}">Transferência</a></button>
+                <button><a th:href="@{/logout}">Sair</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container-icones">
+
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2016/07/Leadership-in-extreme-computing.png"
+                 alt="Leadership-in-extreme-computing">
+            <h4>Líder mundial em Transformação Digital</h4>
+        </div>
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2016/07/Leadership-in-extreme-computing.png"
+                 alt="Leadership-in-extreme-computing">
+            <h4>Nº 1 na Europa em Cloud, HPC e Cybersecurity</h4>
+        </div>
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2019/08/People.png" alt="People">
+            <h4>105 mil especialistas em 71 países</h4>
+        </div>
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2016/07/to-size5-08.png" alt="to-size5-08">
+            <h4>Parceira de TI dos Jogos Olímpicos e Paralímpicos</h4>
+        </div>
+    </div>
+</main>
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>ATM Simulator</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+<body>
+
+
+<main role="main" class="container">
+
+    <div class="box-content">
+        <div class="starter-template">
+            <img th:src="@{/images/atosBank.png}" class="center" alt="">
+        </div>
+        <div class="content">
+            <h1>Saque do Usuário</h1>
+            <div class="container">
+                <form  action="#" th:action="@{/transaction}"  th:object="${transactionRequest}" method="post">
+                    <p>Entre com a quantidade desejada: <input placeholder="Valor do saque" th:field="*{value}" type="number" id ="balance"/></p>
+                    <span th:if="${message != null}" th:text="${message}"></span>
+                    <br>
+                    <div class="btn-group">
+                        <input type="submit" value="Enviar"/>
+                        <input type="reset" value="Resetar" />
+                        <input type="button" onclick="printReceipt()" value="Imprima o recibo"/>
+                    </div>
+                </form>
+            </div>
+            <h4 th:text="${Text}"></h4>
+            <div class="btn-group-caixa">
+                <button> <a th:href="@{/menu}">Início</a></button>
+                <button><a th:href="@{/balance}">Consultar Saldo</a></button>
+                <button><a th:href="@{/deposit}">Depósito</a></button>
+                <button><a th:href="@{/transfer}">Transferência</a></button>
+                <button><a th:href="@{/logout}">Saída</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-icones">
+
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2016/07/Leadership-in-extreme-computing.png"
+                 alt="Leadership-in-extreme-computing">
+            <h4>Líder mundial em Transformação Digital</h4>
+        </div>
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2016/07/Leadership-in-extreme-computing.png"
+                 alt="Leadership-in-extreme-computing">
+            <h4>Nº 1 na Europa em Cloud, HPC e Cybersecurity</h4>
+        </div>
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2019/08/People.png" alt="People">
+            <h4>105 mil especialistas em 71 países</h4>
+        </div>
+        <div class="icones">
+            <img src="https://atos.net/wp-content/uploads/2016/07/to-size5-08.png" alt="to-size5-08">
+            <h4>Parceira de TI dos Jogos Olímpicos e Paralímpicos</h4>
+        </div>
+    </div>
+
+    <!-- <div class="starter-template">
+        <h1>Saque</h1>
+        <div class="btn-group">
+            <button> <a th:href="@{/menu}"> Início </a></button>
+            <button> <a th:href="@{/logout}">Sair </a></button>
+        </div>
+    </div>
+    <div class="container">
+        <form  action="#" th:action="@{/transaction}"  th:object="${transactionRequest}" method="post">
+            <p>Entre com a quantidade desejada: <input placeholder="entre com o valor do saque" th:field="*{value}" type="number" id ="balance"/></p>
+            <span th:if="${message != null}" th:text="${message}"></span>
+            <br>
+            <div class="btn-group">
+                <input type="submit" value="Submit"/>
+                <input type="reset" value="Reset" />
+            </div>
+        </form>
+
+        <button onclick="printReceipt()">Imprima o recibo</button>
+    </div> -->
+
+<script th:inline="javascript">
+
+function printReceipt() {
+    var accountNum = /*[[${accountNum}]]*/ 'default';
+    var balance = /*[[${balance}]]*/ 'default';
+    var valueWithdraw = document.getElementById('balance').value;
+    var total = balance - valueWithdraw;
+
+    alert('Número da conta: '+ accountNum +
+          '\n Valor sacado: R$' + valueWithdraw +
+          '\n Saldo Atual: R$' + total);
+}
+
+</script>
+
+
+    <style>
+    #message {
+        text-align:center;
+        color:#009900;
+        font-size:14px;
+        font-weight:bold;
+        display:none;
+    }
+    </style>
+
+</main>
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
